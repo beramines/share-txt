@@ -13,14 +13,8 @@ export default defineManifest({
     128: 'img/logo-128.png',
   },
   action: {
-    default_popup: 'popup.html',
     default_icon: 'img/logo-48.png',
-  },
-  options_page: 'options.html',
-  devtools_page: 'devtools.html',
-  background: {
-    service_worker: 'src/background/index.ts',
-    type: 'module',
+    default_title: 'share the contents!',
   },
   content_scripts: [
     {
@@ -28,17 +22,11 @@ export default defineManifest({
       js: ['src/contentScript/index.ts'],
     },
   ],
-  side_panel: {
-    default_path: 'sidepanel.html',
-  },
+  permissions: ['activeTab'],
   web_accessible_resources: [
     {
       resources: ['img/logo-16.png', 'img/logo-34.png', 'img/logo-48.png', 'img/logo-128.png'],
       matches: [],
     },
   ],
-  permissions: ['sidePanel', 'storage'],
-  chrome_url_overrides: {
-    newtab: 'newtab.html',
-  },
 })
